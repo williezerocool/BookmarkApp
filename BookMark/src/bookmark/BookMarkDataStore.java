@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bookmark;
 
 import java.util.List;
@@ -134,14 +130,6 @@ public class BookMarkDataStore {
         }
         return bookmark;
     }
-    
-    public void writeTodo(BookMarks bookmark) {
-        List<BookMarks> mark = new ArrayList<>();
-        mark.add(bookmark);
-        write(mark);
-    }
-    
-    
     
    public BookMarks deleteBookmark(String title) {
        List<BookMarks> mark = new ArrayList<>();
