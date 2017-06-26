@@ -74,15 +74,18 @@ public class BookMarkApp {
    
     
     private void edit(){
+        List<BookMarks> all = new ArrayList<>();
         BookMarks bookmark = data.getBookMarkByTitle();
         String edit = ui.areaToEdit();
-        BookMarks a = bookmark;
-        BookMarks newBookmark = ui.makingEdit(bookmark, edit);
-        data.deleteBookmark(a.getTitle());
-        List<BookMarks> all = data.all();
-        all.add(newBookmark);
+        
+        for(BookMarks mark : data.all() ) {
+            if(mark.getTitle().equalsIgnoreCase(bookmark.getTitle())) {
+                mark = ui.makingEdit(bookmark, edit);
+            }
+            all.add(mark);
+        }
+         
         data.write(all);
-        response(newBookmark);
         ui.printLine("Editing Bookmark!");
     }
     
