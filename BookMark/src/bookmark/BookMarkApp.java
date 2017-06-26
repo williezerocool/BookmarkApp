@@ -89,22 +89,24 @@ public class BookMarkApp {
         ui.printLine("Editing Bookmark!");
     }
     
-    private void search() {
+  private void search() {
         String search = ui.search();
         List<BookMarks> bookmark = new ArrayList<>();
         for(BookMarks mark : data.all() ) {
             if(mark.getTitle().equalsIgnoreCase(search) ) {
                 bookmark.add(mark);
-                ui.displayBookmark(bookmark);
             }else if(mark.getUrl().equalsIgnoreCase(search) ) {
                 bookmark.add(mark);
-                ui.displayBookmark(bookmark);
             }else if(mark.getTag().equalsIgnoreCase(search) ) {
                 bookmark.add(mark);
-                ui.displayBookmark(bookmark);
             }
         }
         
+        if(bookmark.size() == 0) {
+            ui.displayNoItemsFound();
+        }else {
+            ui.displayBookmark(bookmark);
+        }
         
     }
     
